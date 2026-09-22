@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viberobo — Turn your vibe into a robot. | Vibe Coding Robotics</title>
+<meta name="description" content="The world's first Vibe Coding Robotics platform. Describe a robot in natural language — AI generates the full project, simulation, URDF, control code, web app, bridge and firmware.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>!function(){var l=localStorage.getItem('vb-lang');if(!l){l=/^zh/i.test(navigator.language||'')?'zh':'en'}if(l==='zh')document.documentElement.classList.add('zh')}()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="bg-grid"></div>
+<div class="bg-glow"><i class="g1"></i><i class="g2"></i></div>
+<canvas id="stars"></canvas>
+
+<!-- ================= NAV ================= -->
+<header id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html" aria-label="VibeRobo home">
+      <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#7c7cf8"/></linearGradient></defs><rect x="2" y="2" width="32" height="32" rx="10" stroke="url(#lg)" stroke-width="2.4"/><path d="M8 20c2.2-7 4.2-7 6 0s3.8 7 6 0 3.8-7 6 0" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="logo-text">Vibe<b>Robo</b></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html" class="active"><span class="en-t">Home</span><span class="zh-t">首页</span></a>
+      <a href="templates.html"><span class="en-t">Templates</span><span class="zh-t">模板库</span></a>
+      <a href="community.html"><span class="en-t">Community</span><span class="zh-t">开源社区</span></a>
+      <a href="pricing.html"><span class="en-t">Pricing</span><span class="zh-t">价格</span></a>
+      <a href="download.html"><span class="en-t">Download</span><span class="zh-t">下载</span></a><a href="docs.html"><span class="en-t">Docs</span><span class="zh-t">知识库</span></a><a href="changelog.html"><span class="en-t">Changelog</span><span class="zh-t">更新日志</span></a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-sw" role="button" aria-label="Switch language"><span data-lang="en">EN</span><span data-lang="zh">中文</span></div>
+      <a class="gh-link" href="https://github.com/viberobo" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <a class="btn btn-primary btn-sm" href="download.html"><span class="en-t">Start building</span><span class="zh-t">开始创造</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <canvas id="neural" class="neural" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-tag" data-reveal><span class="pulse"></span><span class="en-t">World's first · Vibe Coding Robotics platform</span><span class="zh-t">全球首个 · Vibe Coding 机器人开发平台</span></div>
+    <h1>
+      <span class="line en-b" data-reveal style="--d:.08s">Turn your <em>Vibe</em> into a <em>Robot</em></span>
+      <span class="line zh-b" data-reveal style="--d:.08s">灵感造机，<em>语言赋智</em></span>
+    </h1>
+    <p class="hero-sub" data-reveal style="--d:.2s">
+      <span class="en-t">Speak your imagination boldly — AI designs, builds, tests, trains, and deploys your own robot. Built for every enthusiast. <span class="vibe-tag">Let’s vibe it together!</span></span>
+      <span class="zh-t">大胆说出你的想象，用自然语言和AI来辅助设计、开发、测试、训练和部署你的专属机器人，为每一个爱好者而生，<span class="vibe-tag">Let's vibe it together!</span></span>
+    </p>
+    <div class="hero-cta" data-reveal style="--d:.3s">
+      <a class="btn btn-primary" href="download.html">
+        <span class="en-t">Start building free</span><span class="zh-t">免费开始创造</span>
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="templates.html"><span class="en-t">Explore templates</span><span class="zh-t">浏览模板库</span></a>
+    </div>
+    <!-- live generation console -->
+    <div class="console" id="console" data-reveal style="--d:.5s">
+      <div class="console-bar">
+        <div class="traffic"><i></i><i></i><i></i></div>
+        <span class="console-title">viberobo · console</span>
+        <span class="beta">beta</span>
+      </div>
+      <div class="console-body" id="consoleBody">
+        <div class="c-row c-user">
+          <span class="c-who"><span class="en-t">You</span><span class="zh-t">你</span></span>
+          <span class="c-txt"><span id="typeTarget"></span><span class="caret" id="caret"></span></span>
+        </div>
+        <div class="c-row c-ai" id="aiRow" style="display:none;margin-top:18px">
+          <span class="c-who">Viberobo</span>
+          <span class="c-txt" style="color:var(--faint)" id="aiHint"></span>
+        </div>
+        <div class="c-files" id="fileList"></div>
+        <div id="statusWrap"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ECOSYSTEM STRIP ================= -->
+<div class="eco-strip">
+  <div class="wrap" data-reveal>
+    <span class="eco-label"><span class="en-t">Speaks the open robotics ecosystem</span><span class="zh-t">兼容全球开源机器人生态</span></span>
+    <div class="eco-row">
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><circle cx="9.5" cy="13" r="1.4"/><circle cx="14.5" cy="13" r="1.4"/><path d="M12 8V5M9 5h6"/></svg>
+        <span>ROS 2</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+        <span>Gazebo</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/></svg>
+        <span>MuJoCo</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+        <span>PyBullet</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><path d="M8 4l-5 8 5 8M16 4l5 8-5 8M13 4l-2 16"/></svg>
+        <span>URDF</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+        <span>ESP32</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><path d="M6 12c0-3 2.5-5.5 6-5.5s6 2.5 6 5.5-2.5 5.5-6 5.5"/><path d="M18 12c0-3-2.5-5.5-6-5.5S6 9 6 12s2.5 5.5 6 5.5"/></svg>
+        <span>Arduino</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="9" r="1.5"/><circle cx="9" cy="15" r="1.5"/><circle cx="15" cy="15" r="1.5"/></svg>
+        <span>Raspberry Pi</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+        <span>Jetson</span>
+      </div>
+      <div class="eco-item">
+        <svg viewBox="0 0 24 24"><path d="M7 21l2-5h6l2 5"/><path d="M9 16V6a3 3 0 0 1 6 0v10"/><circle cx="12" cy="4" r="2"/><path d="M5 10h2M17 10h2"/></svg>
+        <span>LeRobot</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NUMBERED CHAPTERS ================= -->
+<div class="chapter-block">
+  <div class="wrap">
+
+    <!-- [00] Vibe Coding -->
+    <div class="chap">
+      <div class="chap-text" data-reveal>
+        <div class="chap-num">[00]</div>
+        <div class="chapter"><span class="num">VIBE CODING</span><span class="rule"></span><span class="en-t">Vibe Coding</span><span class="zh-t">灵感式开发</span></div>
+        <h3><span class="en-b">Talk to your robot like a creative partner.</span><span class="zh-b">像对创作伙伴一样，和你的机器人说话。</span></h3>
+        <p><span class="en-t">Describe intent, personality and behavior in plain words. The conversation is the compiler — intent in, engineering out.</span><span class="zh-t">用大白话描述意图、性格与行为。对话即编译 —— 灵感输入，工程输出。</span></p>
+        <ul class="chap-list">
+          <li><span class="en-t">Natural-language behavior design</span><span class="zh-t">自然语言行为设计</span></li>
+          <li><span class="en-t">Iterates with you, in context</span><span class="zh-t">理解上下文，与你迭代共创</span></li>
+          <li><span class="en-t">Zero syntax, zero setup</span><span class="zh-t">零语法、零环境配置</span></li>
+        </ul>
+      </div>
+      <div class="chap-media" data-reveal style="--d:.12s">
+        <div class="b-chat">
+          <div class="chat-b chat-u"><span class="en-t">"A desk robot that leans toward me and blinks when I talk."</span><span class="zh-t">"一个我说话时会凑近看我、还会眨眼的桌面机器人。"</span></div>
+          <div class="chat-b chat-a"><span class="en-t">Generated: <b>gaze_tracker</b> + 2-DOF neck rig · attention loop wired · <b>simulation passed</b></span><span class="zh-t">已生成：<b>gaze_tracker</b> + 双自由度颈部 · 注意力回路已接入 · <b>仿真通过</b></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [01] Full-stack generation -->
+    <div class="chap flip">
+      <div class="chap-text" data-reveal>
+        <div class="chap-num">[01]</div>
+        <div class="chapter"><span class="num">FULL-STACK</span><span class="rule"></span><span class="en-t">Full-stack generation</span><span class="zh-t">全链路生成</span></div>
+        <h3><span class="en-b">One prompt. Every layer of a robot project.</span><span class="zh-b">一句话，生成机器人工程的每一层。</span></h3>
+        <p><span class="en-t">Project scaffold, simulation scene, URDF model, control code, web dashboard, bridge service and firmware — generated, validated and versioned together.</span><span class="zh-t">项目骨架、仿真场景、URDF 模型、控制代码、上位机网页、桥接服务与固件 —— 一体生成、逐层校验、版本化管理。</span></p>
+      </div>
+      <div class="chap-media" data-reveal style="--d:.12s">
+        <div class="stack-list">
+          <div class="st-row"><i class="t-project">PROJECT</i>project/wave_bot/</div>
+          <div class="st-row"><i class="t-sim">SIM</i>scenes/arena.scene</div>
+          <div class="st-row"><i class="t-urdf">URDF</i>model/wave_bot.urdf</div>
+          <div class="st-row"><i class="t-code">CODE</i>control/balance.py</div>
+          <div class="st-row"><i class="t-web">WEB</i>dashboard/index.html</div>
+          <div class="st-row"><i class="t-bridge">BRIDGE</i>bridge/ws_bridge.py</div>
+          <div class="st-row"><i class="t-fw">FW</i>esp32/main.cpp</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [02] Cloud simulation -->
+    <div class="chap">
+      <div class="chap-text" data-reveal>
+        <div class="chap-num">[02]</div>
+        <div class="chapter"><span class="num">SIMULATION</span><span class="rule"></span><span class="en-t">Cloud simulation</span><span class="zh-t">云端仿真</span></div>
+        <h3><span class="en-b">Physics sandbox in any browser.</span><span class="zh-b">任何浏览器里的物理沙盒。</span></h3>
+        <p><span class="en-t">Your robot walks a photoreal simulation before it ever touches the physical world. Iterate a hundred times — no installs, no GPU farm.</span><span class="zh-t">机器人先在云端仿真里走一百遍，再触碰真实世界。无需安装、无需显卡集群。</span></p>
+        <ul class="chap-list">
+          <li><span class="en-t">Web-based, runs on any device</span><span class="zh-t">网页端运行，任意设备可用</span></li>
+          <li><span class="en-t">Safety-first: simulate before hardware</span><span class="zh-t">安全优先：先仿真、后实体</span></li>
+          <li><span class="en-t">One-click deploy when it passes</span><span class="zh-t">仿真通过后一键部署</span></li>
+        </ul>
+      </div>
+      <div class="chap-media" data-reveal style="--d:.12s">
+        <div class="radar"><div class="radar-box"><div class="radar-sweep"></div><span class="blip" style="top:34%;left:58%"></span><span class="blip" style="top:62%;left:36%;animation-delay:1.4s"></span></div></div>
+        <div class="radar-cap"><span class="en-t">live physics · cloud sim cluster</span><span class="zh-t">实时物理 · 云端仿真集群</span></div>
+      </div>
+    </div>
+
+    <!-- [03] Zero barrier -->
+    <div class="chap flip">
+      <div class="chap-text" data-reveal>
+        <div class="chap-num">[03]</div>
+        <div class="chapter"><span class="num">ZERO BARRIER</span><span class="rule"></span><span class="en-t">Zero barrier creation</span><span class="zh-t">零门槛创作</span></div>
+        <h3><span class="en-b">Built for students, makers and the curious.</span><span class="zh-b">为学生、创客与好奇心而生。</span></h3>
+        <p><span class="en-t">Designed with teens and educators in mind — safe sims first, hardware second, early wins always. From first idea to first steps in one afternoon.</span><span class="zh-t">为青少年与教育者设计 —— 仿真先行、硬件在后，快速获得正反馈。一个下午，从第一个想法到机器人迈出第一步。</span></p>
+      </div>
+      <div class="chap-media" data-reveal style="--d:.12s">
+        <div class="steps">
+          <div class="step"><b>01</b><span><span class="en-t">Idea</span><span class="zh-t">灵感</span></span></div>
+          <span class="step-arrow" aria-hidden="true">→</span>
+          <div class="step"><b>02</b><span><span class="en-t">Simulate</span><span class="zh-t">仿真</span></span></div>
+          <span class="step-arrow" aria-hidden="true">→</span>
+          <div class="step"><b>03</b><span><span class="en-t">Robot</span><span class="zh-t">实体</span></span></div>
+        </div>
+        <div class="steps-cap"><span class="en-t">idea → robot in minutes, not months</span><span class="zh-t">从灵感到实体，以分钟计，不以月计</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= TEMPLATES PREVIEW ================= -->
+<section id="templates">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="chapter" data-reveal><span class="num">TEMPLATES</span><span class="rule"></span><span class="en-t">Open templates</span><span class="zh-t">开源模板库</span></div>
+      <h2 class="h2" data-reveal style="--d:.08s"><span class="en-b">Start from a template.<br><span class="grad-text">Make it yours.</span></span><span class="zh-b">从模板开始，<br><span class="grad-text">改成你的作品。</span></span></h2>
+      <p class="lead" data-reveal style="--d:.16s"><span class="en-t">Open-source robot templates — fork, remix and ship.</span><span class="zh-t">开源机器人模板：一键复刻、自由改造、直接生成你的专属机器人。</span></p>
+    </div>
+
+    <div class="tpl-grid">
+      <article class="card tpl" data-reveal>
+        <div class="tpl-vis tv-1" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="24" r="10"/><path d="M42 38h16l4 22H38l4-22Z"/><path d="M42 60 36 84M58 60l6 24M36 84h-6M64 84h6M42 44l-8 8M58 44l8 8"/></svg></div>
+        <div class="tpl-in">
+          <div class="tpl-head"><h3>Bipedal Walker</h3><span class="tpl-lic">MIT</span></div>
+          <p><span class="en-t">A balancing biped that walks, turns and waves on command — the classic first humanoid.</span><span class="zh-t">会行走、转弯、挥手的自平衡双足 —— 经典的第一台人形机器人。</span></p>
+          <div class="tpl-tags"><span>URDF</span><span>Sim</span><span>Gait</span></div>
+          <a class="tpl-link" href="templates.html"><span class="en-t">Use template</span><span class="zh-t">使用模板</span><span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="card tpl" data-reveal style="--d:.08s">
+        <div class="tpl-vis tv-4" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 14v10"/><circle cx="50" cy="12" r="3"/><rect x="28" y="24" width="44" height="46" rx="16"/><circle cx="42" cy="44" r="4"/><circle cx="58" cy="44" r="4"/><path d="M44 58c4 4 8 4 12 0M28 40h-8M80 40h-8"/></svg></div>
+        <div class="tpl-in">
+          <div class="tpl-head"><h3>Desktop Companion</h3><span class="tpl-lic">MIT</span></div>
+          <p><span class="en-t">An expressive desk robot with voice, moods and attention — personality included.</span><span class="zh-t">有语音、有情绪、会关注你的桌面伙伴 —— 自带人格。</span></p>
+          <div class="tpl-tags"><span>Voice</span><span>Emotion</span><span>LLM</span></div>
+          <a class="tpl-link" href="templates.html"><span class="en-t">Use template</span><span class="zh-t">使用模板</span><span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="card tpl" data-reveal style="--d:.16s">
+        <div class="tpl-vis tv-3" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M30 82h40M40 82v-8h20v8M46 74l-4-22h16l-4 22"/><path d="M54 52 68 34M68 34l8 6M76 40l4-6M68 34l2-10"/><circle cx="50" cy="52" r="5"/></svg></div>
+        <div class="tpl-in">
+          <div class="tpl-head"><h3>Robotic Arm</h3><span class="tpl-lic">MIT</span></div>
+          <p><span class="en-t">A pick-and-place arm with vision-guided grasping and inverse kinematics out of the box.</span><span class="zh-t">视觉引导抓取的取放机械臂，开箱自带逆运动学。</span></p>
+          <div class="tpl-tags"><span>Arm</span><span>Vision</span><span>IK</span></div>
+          <a class="tpl-link" href="templates.html"><span class="en-t">Use template</span><span class="zh-t">使用模板</span><span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="center" style="margin-top:44px" data-reveal>
+      <a class="btn btn-ghost" href="templates.html"><span class="en-t">Browse all templates</span><span class="zh-t">浏览全部模板</span><span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= USE CASES ================= -->
+<section id="usecases">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="chapter" data-reveal><span class="num">USE CASES</span><span class="rule"></span><span class="en-t">Who it is for</span><span class="zh-t">适用人群</span></div>
+      <h2 class="h2" data-reveal style="--d:.08s"><span class="en-b">Made for everyone who<br><span class="grad-text">imagines machines.</span></span><span class="zh-b">为每一个<br><span class="grad-text">想象机器的人</span>而生。</span></h2>
+    </div>
+    <div class="uc-grid">
+      <article class="card uc" data-reveal>
+        <div class="uc-ico"><svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11.5V17c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5.5M22 9v6"/></svg></div>
+        <h3><span class="en-t">Teen creators</span><span class="zh-t">青少年创作者</span><i><span class="en-t">STEM education</span><span class="zh-t">科创教育</span></i></h3>
+        <p><span class="en-t">From a science-fair idea to a working entry — without a single line of C++.</span><span class="zh-t">从科创大赛的点子到能跑的作品 —— 一行 C++ 都不用写。</span></p>
+      </article>
+      <article class="card uc" data-reveal style="--d:.08s">
+        <div class="uc-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18v3h3l5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7Z"/></svg></div>
+        <h3><span class="en-t">Makers</span><span class="zh-t">硬件创客</span><i><span class="en-t">hardware hackers</span><span class="zh-t">机器人创客</span></i></h3>
+        <p><span class="en-t">Prototype fast. Skip the boilerplate — keep the soldering fun.</span><span class="zh-t">快速原型。跳过样板工程，保留焊接的乐趣。</span></p>
+      </article>
+      <article class="card uc" data-reveal style="--d:.16s">
+        <div class="uc-ico"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v5.5L4.8 18a2.4 2.4 0 0 0 2.1 3.5h10.2a2.4 2.4 0 0 0 2.1-3.5L14 8.5V3"/><path d="M8 15h8"/></svg></div>
+        <h3><span class="en-t">Researchers</span><span class="zh-t">科研人员</span><i><span class="en-t">university labs</span><span class="zh-t">高校科研</span></i></h3>
+        <p><span class="en-t">Spin up experiment rigs and simulation baselines in minutes, not weeks.</span><span class="zh-t">以分钟而非周计，搭建实验平台与仿真基线。</span></p>
+      </article>
+      <article class="card uc" data-reveal style="--d:.24s">
+        <div class="uc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M7 9l3 3-3 3M12 15h5M8 21h8"/></svg></div>
+        <h3><span class="en-t">Indie developers</span><span class="zh-t">独立开发者</span><i><span class="en-t">one-person teams</span><span class="zh-t">一人团队</span></i></h3>
+        <p><span class="en-t">One person, full stack — from prompt to hardware demo.</span><span class="zh-t">一个人全栈 —— 从一句话到硬件 demo。</span></p>
+      </article>
+      <article class="card uc" data-reveal style="--d:.32s">
+        <div class="uc-ico"><svg viewBox="0 0 24 24"><path d="M12 2l1.9 5.6L20 9l-5 3.9L16.5 20 12 16.5 7.5 20 9 12.9 4 9l6.1-1.4L12 2Z"/></svg></div>
+        <h3><span class="en-t">AI explorers</span><span class="zh-t">AI 爱好者</span><i><span class="en-t">embodied AI</span><span class="zh-t">具身智能</span></i></h3>
+        <p><span class="en-t">Connect large models to the physical world — and play.</span><span class="zh-t">把大模型接进物理世界 —— 尽情玩。</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY BANNER ================= -->
+<section id="community">
+  <div class="wrap">
+    <div class="comm-banner card" data-reveal>
+      <div class="chapter" style="justify-content:center"><span class="num">COMMUNITY</span><span class="rule"></span><span class="en-t">开源社区</span><span class="zh-t">开源社区</span></div>
+      <h2 class="h2" data-reveal style="--d:.08s"><span class="en-b">Built in the open.<br><span class="grad-text">Grown with creators.</span></span><span class="zh-b">生于开源，<br><span class="grad-text">与创作者共生长。</span></span></h2>
+      <p class="lead" style="margin:0 auto 34px" data-reveal style="--d:.16s"><span class="en-t">Templates, bridge services and tooling are open source. Fork a template, plug your own hardware, share what you build.</span><span class="zh-t">模板、桥接服务与工具链全部开源。复刻模板、接入你的硬件、分享你的作品。</span></p>
+      <div class="comm-cta" data-reveal style="--d:.22s">
+        <a class="btn btn-primary" href="https://github.com/viberobo" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          <span class="en-t">Star on GitHub</span><span class="zh-t">在 GitHub 上 Star</span>
+        </a>
+        <a class="btn btn-ghost" href="community.html"><span class="en-t">Explore community</span><span class="zh-t">进入开源社区</span><span aria-hidden="true">→</span></a>
+      </div>
+      <div class="comm-feats">
+        <div class="cf" data-reveal style="--d:.3s"><b><span class="en-t">Open templates</span><span class="zh-t">开放模板</span><em><span class="en-t">fork &amp; remix</span><span class="zh-t">复刻与再创作</span></em></b><span><span class="en-t">Every template is forkable, remixable and free forever.</span><span class="zh-t">每个模板都可复刻、可改造、永久免费。</span></span></div>
+        <div class="cf" data-reveal style="--d:.38s"><b><span class="en-t">Open bridge</span><span class="zh-t">开放桥接</span><em><span class="en-t">any hardware</span><span class="zh-t">任意硬件</span></em></b><span><span class="en-t">Plug any board — ESP32, Arduino, Pi — into the same cloud brain.</span><span class="zh-t">ESP32、Arduino、树莓派，任何开发板都能接入同一个云端大脑。</span></span></div>
+        <div class="cf" data-reveal style="--d:.46s"><b><span class="en-t">Public roadmap</span><span class="zh-t">公开路线图</span><em><span class="en-t">shape what ships</span><span class="zh-t">由你决定方向</span></em></b><span><span class="en-t">Milestones are discussed in the open. Shape what ships next.</span><span class="zh-t">里程碑公开讨论，下一个功能由社区决定。</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html" aria-label="VibeRobo">
+          <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#7c7cf8"/></linearGradient></defs><rect x="2" y="2" width="32" height="32" rx="10" stroke="url(#lg)" stroke-width="2.4"/><path d="M8 20c2.2-7 4.2-7 6 0s3.8 7 6 0 3.8-7 6 0" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span class="logo-text">Vibe<b>Robo</b></span>
+        </a>
+        <p><span class="en-t">Turn your vibe into a robot. The world's first Vibe Coding Robotics platform.</span><span class="zh-t">灵感造机，语言赋智。全球首个 Vibe Coding 机器人开发平台。</span></p>
+        <div class="dom-pills"><span>viberobo.ai</span><span>viberobot.com</span></div>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Product</span><span class="zh-t">产品</span></h4>
+        <a href="download.html"><span class="en-t">Download VibeStudio</span><span class="zh-t">下载 VibeStudio</span></a>
+        <a href="templates.html"><span class="en-t">Templates</span><span class="zh-t">模板库</span></a>
+        <a href="pricing.html"><span class="en-t">Pricing</span><span class="zh-t">价格</span></a>
+        <a href="changelog.html"><span class="en-t">Changelog</span><span class="zh-t">更新日志</span></a>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Resources</span><span class="zh-t">资源支持</span></h4>
+        <a href="docs.html"><span class="en-t">Knowledge base</span><span class="zh-t">知识库</span></a>
+        <a href="docs.html"><span class="en-t">Quick start</span><span class="zh-t">快速上手</span></a>
+        <a href="community.html"><span class="en-t">Open community</span><span class="zh-t">开源社区</span></a>
+        <a href="https://github.com/viberobo" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Contact us</span><span class="zh-t">联系我们</span></h4>
+        <a href="tel:400000000"><span class="en-t">Hotline&nbsp;&middot;&nbsp;</span><span class="zh-t">企业咨询热线&nbsp;&middot;&nbsp;</span>400-000-000</a>
+        <a href="mailto:business@viberobo.ai"><span class="en-t">Enterprise purchase</span><span class="zh-t">企业采购咨询</span></a>
+        <a href="mailto:feedback@viberobo.ai"><span class="en-t">Feedback</span><span class="zh-t">建议反馈</span></a>
+        <span class="foot-addr"><span class="en-t">Building T5, Industrial Intelligence Center, Minhang, Shanghai</span><span class="zh-t">上海市闵行区工业智能中心T5栋</span></span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal">
+        <p>&copy; <span id="year">2026</span> Viberobo · 上海智可派机器人科技有限公司版权所有</p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">沪ICP备2024XXXXXX号-1</a><span class="en-t"> · viberobo.ai · viberobot.com</span></p>
+      </div>
+      <div class="social-row">
+        <a href="https://www.youtube.com/@viberobo" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.2 7.1s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.7 3.5 12 3.5 12 3.5s-4.7 0-7.9.3c-.5.1-1.5.1-2.4 1-.7.7-.9 2.3-.9 2.3S.6 9 .6 10.9v1.8c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.9.2 7.8.3 7.8.3s4.7 0 7.9-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.8c0-1.9-.2-3.8-.2-3.8ZM9.8 15V8.6l6.2 3.2L9.8 15Z"/></svg></a>
+        <a href="https://x.com/viberobo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 1.8h3.7l-8.2 9.4L24 22.9h-7.6l-5.9-7.8-6.8 7.8H0l8.8-10L-.4 1.8h7.8l5.4 7.1 6.1-7.1Zm-1.3 18.8h2.1L6.3 4H4.1l13.5 16.6Z"/></svg></a>
+        <a href="#" aria-label="WeChat"><svg viewBox="0 0 24 24"><path d="M8.9 4.2C4.9 4.2 1.7 6.9 1.7 10.2c0 1.9 1 3.5 2.5 4.7l-.6 2 2.3-1.2c.7.2 1.5.4 2.3.4h.5c-.1-.4-.2-.9-.2-1.4 0-3.1 2.9-5.6 6.5-5.6h.4c-.6-2.9-3.4-4.9-6.5-4.9ZM6.4 8.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm5 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/><path d="M15.9 10.5c-3.2 0-5.8 2.1-5.8 4.8s2.6 4.8 5.8 4.8c.6 0 1.3-.1 1.9-.3l2 .9-.6-1.7c1.4-.9 2.4-2.2 2.4-3.7 0-2.7-2.6-4.8-5.7-4.8Zm-2 3.1a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm4.1 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z"/></svg></a>
+        <a href="https://github.com/viberobo" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/viberobo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5 3.6a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM.3 8.4h4.5V22H.3V8.4Zm7.5 0h4.3v1.9h.1c.6-1.2 2.1-2.4 4.3-2.4 4.6 0 5.5 3 5.5 7V22h-4.5v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V22H7.8V8.4Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/console.js"></script>
+</body>
+</html>

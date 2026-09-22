@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docs — VibeRobo | Knowledge Base</title>
+<meta name="description" content="VibeRobo knowledge base — quick start, VibeStudio desktop guide, cloud simulation, hardware bridge and firmware flashing docs.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>!function(){var l=localStorage.getItem('vb-lang');if(!l){l=/^zh/i.test(navigator.language||'')?'zh':'en'}if(l==='zh')document.documentElement.classList.add('zh')}()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="bg-grid"></div>
+<div class="bg-glow"><i class="g1"></i><i class="g2"></i></div>
+<canvas id="stars"></canvas>
+
+<header id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html" aria-label="VibeRobo home">
+      <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#7c7cf8"/></linearGradient></defs><rect x="2" y="2" width="32" height="32" rx="10" stroke="url(#lg)" stroke-width="2.4"/><path d="M8 20c2.2-7 4.2-7 6 0s3.8 7 6 0 3.8-7 6 0" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="logo-text">Vibe<b>Robo</b></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html"><span class="en-t">Home</span><span class="zh-t">首页</span></a>
+      <a href="templates.html"><span class="en-t">Templates</span><span class="zh-t">模板库</span></a>
+      <a href="community.html"><span class="en-t">Community</span><span class="zh-t">开源社区</span></a>
+      <a href="pricing.html"><span class="en-t">Pricing</span><span class="zh-t">价格</span></a>
+      <a href="download.html"><span class="en-t">Download</span><span class="zh-t">下载</span></a>
+      <a href="docs.html" class="active"><span class="en-t">Docs</span><span class="zh-t">知识库</span></a>
+      <a href="changelog.html"><span class="en-t">Changelog</span><span class="zh-t">更新日志</span></a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-sw" role="button" aria-label="Switch language"><span data-lang="en">EN</span><span data-lang="zh">中文</span></div>
+      <a class="gh-link" href="https://github.com/viberobo" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <a class="btn btn-primary btn-sm" href="download.html"><span class="en-t">Start building</span><span class="zh-t">开始创造</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap center">
+    <div class="chapter" style="justify-content:center" data-reveal><span class="num">DOCS</span><span class="rule"></span><span class="en-t">Knowledge base</span><span class="zh-t">知识库</span></div>
+    <h2 class="h2" data-reveal style="--d:.08s"><span class="en-b">From sentence to robot,<br><span class="grad-text">every step documented</span>.</span><span class="zh-b">从一句话到实体机器人，<br>每一步都有<span class="grad-text">文档</span>。</span></h2>
+    <p class="lead" data-reveal style="--d:.16s"><span class="en-t">Guides, tutorials and reference material — written for creators, not just engineers.</span><span class="zh-t">指南、教程与参考手册 —— 为创作者而写，而不只是为工程师。</span></p>
+    <div class="search-box" data-reveal style="--d:.24s">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" placeholder="Search docs… 搜索文档…" aria-label="Search docs">
+      <kbd>Ctrl K</kbd>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="docs-grid">
+      <article class="card doc-card" data-reveal>
+        <div class="doc-ico"><svg viewBox="0 0 24 24"><path d="M4.5 16.5 3 21l4.5-1.5M14 4l6 6-8.5 8.5a4.9 4.9 0 0 1-6-6L14 4ZM15 9l.01 0M12 12l.01 0"/></svg></div>
+        <h3><span class="en-t">Getting started</span><span class="zh-t">快速开始</span></h3>
+        <p><span class="en-t">Your first ten minutes with VibeRobo.</span><span class="zh-t">你的第一个十分钟。</span></p>
+        <ul>
+          <li><a href="#"><span class="en-t">Create your first robot</span><span class="zh-t">创建你的第一个机器人</span></a></li>
+          <li><a href="#"><span class="en-t">Install the Bridge CLI</span><span class="zh-t">安装 Bridge CLI</span></a></li>
+          <li><a href="#"><span class="en-t">VibeStudio in 3 minutes</span><span class="zh-t">三分钟上手 VibeStudio</span></a></li>
+        </ul>
+        <a class="tpl-link" href="#"><span class="en-t">View all</span><span class="zh-t">查看全部</span><span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card doc-card" data-reveal style="--d:.06s">
+        <div class="doc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M7 9l3 3-3 3M12 15h5M8 21h8"/></svg></div>
+        <h3><span class="en-t">VibeStudio desktop</span><span class="zh-t">VibeStudio 桌面版</span></h3>
+        <p><span class="en-t">Install, workspaces and project management.</span><span class="zh-t">安装、工作区与项目管理。</span></p>
+        <ul>
+          <li><a href="#"><span class="en-t">Install on Windows / Linux</span><span class="zh-t">Windows / Linux 安装指南</span></a></li>
+          <li><a href="#"><span class="en-t">Workspace tour</span><span class="zh-t">工作区功能导览</span></a></li>
+          <li><a href="#"><span class="en-t">Export &amp; backup projects</span><span class="zh-t">项目导出与备份</span></a></li>
+        </ul>
+        <a class="tpl-link" href="#"><span class="en-t">View all</span><span class="zh-t">查看全部</span><span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card doc-card" data-reveal style="--d:.12s">
+        <div class="doc-ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 1 0-3.1 6.3L21 19l-.9-3.2A7.9 7.9 0 0 0 21 12Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></div>
+        <h3><span class="en-t">Vibe Console</span><span class="zh-t">网页控制台</span></h3>
+        <p><span class="en-t">Talk to the AI engine like a pro.</span><span class="zh-t">像行家一样与 AI 引擎对话。</span></p>
+        <ul>
+          <li><a href="#"><span class="en-t">Prompting tips for robots</span><span class="zh-t">机器人提示词技巧</span></a></li>
+          <li><a href="#"><span class="en-t">Reading generated output</span><span class="zh-t">读懂生成结果</span></a></li>
+          <li><a href="#"><span class="en-t">Versions &amp; rollback</span><span class="zh-t">版本管理与回滚</span></a></li>
+        </ul>
+        <a class="tpl-link" href="#"><span class="en-t">View all</span><span class="zh-t">查看全部</span><span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card doc-card" data-reveal style="--d:.18s">
+        <div class="doc-ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 8v4l3 2"/></svg></div>
+        <h3><span class="en-t">Cloud simulation</span><span class="zh-t">云端仿真</span></h3>
+        <p><span class="en-t">Physics sandbox scenes and settings.</span><span class="zh-t">物理沙盒场景与参数。</span></p>
+        <ul>
+          <li><a href="#"><span class="en-t">Scene &amp; physics parameters</span><span class="zh-t">场景与物理参数</span></a></li>
+          <li><a href="#"><span class="en-t">Analyzing sim results</span><span class="zh-t">仿真结果分析</span></a></li>
+          <li><a href="#"><span class="en-t">Common sim errors</span><span class="zh-t">常见仿真报错排查</span></a></li>
+        </ul>
+        <a class="tpl-link" href="#"><span class="en-t">View all</span><span class="zh-t">查看全部</span><span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card doc-card" data-reveal style="--d:.24s">
+        <div class="doc-ico"><svg viewBox="0 0 24 24"><path d="M9 6v6M9 6a2 2 0 1 0-2 2h2M15 6a2 2 0 1 1 2 2h-2M15 12V6M9 12h6M12 12v8"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></div>
+        <h3><span class="en-t">Bridge &amp; hardware</span><span class="zh-t">桥接与硬件</span></h3>
+        <p><span class="en-t">Connect any board to the cloud brain.</span><span class="zh-t">把任何开发板接上云端大脑。</span></p>
+        <ul>
+          <li><a href="#"><span class="en-t">ESP32 setup guide</span><span class="zh-t">ESP32 接入指南</span></a></li>
+          <li><a href="#"><span class="en-t">Raspberry Pi &amp; Jetson</span><span class="zh-t">树莓派与 Jetson</span></a></li>
+          <li><a href="#"><span class="en-t">Write a custom adapter</span><span class="zh-t">编写自定义桥接适配器</span></a></li>
+        </ul>
+        <a class="tpl-link" href="#"><span class="en-t">View all</span><span class="zh-t">查看全部</span><span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card doc-card" data-reveal style="--d:.3s">
+        <div class="doc-ico"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+        <h3><span class="en-t">Firmware &amp; flashing</span><span class="zh-t">固件与烧录</span></h3>
+        <p><span class="en-t">Burn safe firmware in one click.</span><span class="zh-t">一键烧录安全固件。</span></p>
+        <ul>
+          <li><a href="#"><span class="en-t">WebSerial flashing guide</span><span class="zh-t">WebSerial 烧录教程</span></a></li>
+          <li><a href="#"><span class="en-t">Firmware tuning parameters</span><span class="zh-t">固件参数调优</span></a></li>
+          <li><a href="#"><span class="en-t">Safety limits explained</span><span class="zh-t">安全限制说明</span></a></li>
+        </ul>
+        <a class="tpl-link" href="#"><span class="en-t">View all</span><span class="zh-t">查看全部</span><span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+
+    <div class="center" style="margin-top:56px" data-reveal>
+      <p class="lead" style="margin:0 auto 24px"><span class="en-t">Couldn't find your answer? The community and our team are one click away.</span><span class="zh-t">没有找到答案？社区和我们的团队就在一步之遥。</span></p>
+      <div class="hero-cta" style="margin-bottom:0">
+        <a class="btn btn-primary" href="community.html"><span class="en-t">Ask the community</span><span class="zh-t">去社区提问</span></a>
+        <a class="btn btn-ghost" href="mailto:support@viberobo.ai"><span class="en-t">Email support</span><span class="zh-t">邮件支持</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html" aria-label="VibeRobo">
+          <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#7c7cf8"/></linearGradient></defs><rect x="2" y="2" width="32" height="32" rx="10" stroke="url(#lg)" stroke-width="2.4"/><path d="M8 20c2.2-7 4.2-7 6 0s3.8 7 6 0 3.8-7 6 0" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span class="logo-text">Vibe<b>Robo</b></span>
+        </a>
+        <p><span class="en-t">Turn your vibe into a robot. The world's first Vibe Coding Robotics platform.</span><span class="zh-t">灵感造机，语言赋智。全球首个 Vibe Coding 机器人开发平台。</span></p>
+        <div class="dom-pills"><span>viberobo.ai</span><span>viberobot.com</span></div>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Product</span><span class="zh-t">产品</span></h4>
+        <a href="download.html"><span class="en-t">Download VibeStudio</span><span class="zh-t">下载 VibeStudio</span></a>
+        <a href="templates.html"><span class="en-t">Templates</span><span class="zh-t">模板库</span></a>
+        <a href="pricing.html"><span class="en-t">Pricing</span><span class="zh-t">价格</span></a>
+        <a href="changelog.html"><span class="en-t">Changelog</span><span class="zh-t">更新日志</span></a>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Resources</span><span class="zh-t">资源支持</span></h4>
+        <a href="docs.html"><span class="en-t">Knowledge base</span><span class="zh-t">知识库</span></a>
+        <a href="docs.html"><span class="en-t">Quick start</span><span class="zh-t">快速上手</span></a>
+        <a href="community.html"><span class="en-t">Open community</span><span class="zh-t">开源社区</span></a>
+        <a href="https://github.com/viberobo" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Contact us</span><span class="zh-t">联系我们</span></h4>
+        <a href="tel:400000000"><span class="en-t">Hotline&nbsp;·&nbsp;</span><span class="zh-t">企业咨询热线&nbsp;·&nbsp;</span>400-000-000</a>
+        <a href="mailto:business@viberobo.ai"><span class="en-t">Enterprise purchase</span><span class="zh-t">企业采购咨询</span></a>
+        <a href="mailto:feedback@viberobo.ai"><span class="en-t">Feedback</span><span class="zh-t">建议反馈</span></a>
+        <span class="foot-addr"><span class="en-t">Building T5, Industrial Intelligence Center, Minhang, Shanghai</span><span class="zh-t">上海市闵行区工业智能中心T5栋</span></span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal">
+        <p>© <span id="year">2026</span> Viberobo · 上海智可派机器人科技有限公司版权所有</p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">沪ICP备2024XXXXXX号-1</a><span class="en-t"> · viberobo.ai · viberobot.com</span></p>
+      </div>
+      <div class="social-row">
+        <a href="https://www.youtube.com/@viberobo" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.2 7.1s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.7 3.5 12 3.5 12 3.5s-4.7 0-7.9.3c-.5.1-1.5.1-2.4 1-.7.7-.9 2.3-.9 2.3S.6 9 .6 10.9v1.8c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.9.2 7.8.3 7.8.3s4.7 0 7.9-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.8c0-1.9-.2-3.8-.2-3.8ZM9.8 15V8.6l6.2 3.2L9.8 15Z"/></svg></a>
+        <a href="https://x.com/viberobo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 1.8h3.7l-8.2 9.4L24 22.9h-7.6l-5.9-7.8-6.8 7.8H0l8.8-10L-.4 1.8h7.8l5.4 7.1 6.1-7.1Zm-1.3 18.8h2.1L6.3 4H4.1l13.5 16.6Z"/></svg></a>
+        <a href="#" aria-label="WeChat"><svg viewBox="0 0 24 24"><path d="M8.9 4.2C4.9 4.2 1.7 6.9 1.7 10.2c0 1.9 1 3.5 2.5 4.7l-.6 2 2.3-1.2c.7.2 1.5.4 2.3.4h.5c-.1-.4-.2-.9-.2-1.4 0-3.1 2.9-5.6 6.5-5.6h.4c-.6-2.9-3.4-4.9-6.5-4.9ZM6.4 8.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm5 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/><path d="M15.9 10.5c-3.2 0-5.8 2.1-5.8 4.8s2.6 4.8 5.8 4.8c.6 0 1.3-.1 1.9-.3l2 .9-.6-1.7c1.4-.9 2.4-2.2 2.4-3.7 0-2.7-2.6-4.8-5.7-4.8Zm-2 3.1a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm4.1 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z"/></svg></a>
+        <a href="https://github.com/viberobo" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/viberobo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5 3.6a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM.3 8.4h4.5V22H.3V8.4Zm7.5 0h4.3v1.9h.1c.6-1.2 2.1-2.4 4.3-2.4 4.6 0 5.5 3 5.5 7V22h-4.5v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V22H7.8V8.4Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

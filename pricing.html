@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Viberobo | Free during Beta</title>
+<meta name="description" content="Viberobo pricing — free for creators during beta. Pro for power builders, Team for classrooms and labs.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>!function(){var l=localStorage.getItem('vb-lang');if(!l){l=/^zh/i.test(navigator.language||'')?'zh':'en'}if(l==='zh')document.documentElement.classList.add('zh')}()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="bg-grid"></div>
+<div class="bg-glow"><i class="g1"></i><i class="g2"></i></div>
+<canvas id="stars"></canvas>
+
+<header id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html" aria-label="VibeRobo home">
+      <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#7c7cf8"/></linearGradient></defs><rect x="2" y="2" width="32" height="32" rx="10" stroke="url(#lg)" stroke-width="2.4"/><path d="M8 20c2.2-7 4.2-7 6 0s3.8 7 6 0 3.8-7 6 0" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="logo-text">Vibe<b>Robo</b></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html"><span class="en-t">Home</span><span class="zh-t">首页</span></a>
+      <a href="templates.html"><span class="en-t">Templates</span><span class="zh-t">模板库</span></a>
+      <a href="community.html"><span class="en-t">Community</span><span class="zh-t">开源社区</span></a>
+      <a href="pricing.html" class="active"><span class="en-t">Pricing</span><span class="zh-t">价格</span></a>
+      <a href="download.html"><span class="en-t">Download</span><span class="zh-t">下载</span></a><a href="docs.html"><span class="en-t">Docs</span><span class="zh-t">知识库</span></a><a href="changelog.html"><span class="en-t">Changelog</span><span class="zh-t">更新日志</span></a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-sw" role="button" aria-label="Switch language"><span data-lang="en">EN</span><span data-lang="zh">中文</span></div>
+      <a class="gh-link" href="https://github.com/viberobo" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <a class="btn btn-primary btn-sm" href="download.html"><span class="en-t">Start building</span><span class="zh-t">开始创造</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap center">
+    <div class="chapter" style="justify-content:center" data-reveal><span class="num">PRICING</span><span class="rule"></span><span class="en-t">Pricing</span><span class="zh-t">价格</span></div>
+    <h2 class="h2" data-reveal style="--d:.08s"><span class="en-b">Free for creators.<br><span class="grad-text">Fair for everyone.</span></span><span class="zh-b">创作者免费，<br><span class="grad-text">对所有人公平。</span></span></h2>
+    <p class="lead" data-reveal style="--d:.16s"><span class="en-t">Everything is free during beta. No credit card, no catch — just build.</span><span class="zh-t">Beta 期间全部免费。无需信用卡，没有套路 —— 尽管造。</span></p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="price-grid">
+      <!-- Free -->
+      <div class="card plan" data-reveal>
+        <h3>Maker</h3>
+        <p class="p-desc"><span class="en-t">For curious minds and first robots.</span><span class="zh-t">为好奇心与第一台机器人而备。</span></p>
+        <div class="p-price">$0<small><span class="en-t"> / forever</span><span class="zh-t"> / 永久</span></small></div>
+        <div class="p-cycle"><span class="en-t">FREE FOREVER · EDU FRIENDLY</span><span class="zh-t">永久免费 · 教育友好</span></div>
+        <ul>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Unlimited console generations</span><span class="zh-t">控制台生成次数不限</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">All open-source templates</span><span class="zh-t">全部开源模板</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Browser cloud simulation</span><span class="zh-t">网页端云端仿真</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">1 connected robot</span><span class="zh-t">连接 1 台机器人</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Community support</span><span class="zh-t">社区支持</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="download.html" style="width:100%"><span class="en-t">Start free</span><span class="zh-t">免费开始</span></a>
+      </div>
+      <!-- Pro -->
+      <div class="card plan hot" data-reveal style="--d:.08s">
+        <span class="plan-badge"><span class="en-t">Most popular</span><span class="zh-t">最受欢迎</span></span>
+        <h3>Pro</h3>
+        <p class="p-desc"><span class="en-t">For builders shipping real machines.</span><span class="zh-t">为认真造机的 builder 而备。</span></p>
+        <div class="p-price">$12<small><span class="en-t"> / month</span><span class="zh-t"> / 月</span></small></div>
+        <div class="p-cycle"><span class="en-t">FREE DURING BETA · CANCEL ANYTIME</span><span class="zh-t">BETA 期间免费 · 随时取消</span></div>
+        <ul>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Everything in Maker</span><span class="zh-t">包含 Maker 全部功能</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Priority generation queue</span><span class="zh-t">生成优先队列</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Photoreal simulation scenes</span><span class="zh-t">照片级仿真场景</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">10 connected robots</span><span class="zh-t">连接 10 台机器人</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Private projects &amp; templates</span><span class="zh-t">私有项目与模板</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Export ROS 2 packages</span><span class="zh-t">导出 ROS 2 功能包</span></li>
+        </ul>
+        <a class="btn btn-primary" href="download.html" style="width:100%"><span class="en-t">Go Pro</span><span class="zh-t">升级 Pro</span></a>
+      </div>
+      <!-- Team -->
+      <div class="card plan" data-reveal style="--d:.16s">
+        <h3>Team</h3>
+        <p class="p-desc"><span class="en-t">For classrooms, labs and maker spaces.</span><span class="zh-t">为课堂、实验室与创客空间而备。</span></p>
+        <div class="p-price">$49<small><span class="en-t"> / month</span><span class="zh-t"> / 月</span></small></div>
+        <div class="p-cycle"><span class="en-t">FREE DURING BETA · PER 10 SEATS</span><span class="zh-t">BETA 期间免费 · 每 10 席位</span></div>
+        <ul>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Everything in Pro</span><span class="zh-t">包含 Pro 全部功能</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Shared team workspace</span><span class="zh-t">团队共享工作区</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Classroom management</span><span class="zh-t">课堂管理工具</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Unlimited connected robots</span><span class="zh-t">机器人连接数不限</span></li>
+          <li><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3.2L13 5"/></svg><span class="en-t">Priority support &amp; onboarding</span><span class="zh-t">优先支持与上手辅导</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:hello@viberobo.ai" style="width:100%"><span class="en-t">Contact us</span><span class="zh-t">联系我们</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:clamp(40px,5vw,60px)">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="chapter" style="justify-content:center" data-reveal><span class="num">FAQ</span><span class="rule"></span><span class="en-t">常见问题</span><span class="zh-t">常见问题</span></div>
+      <h2 class="h2" data-reveal style="--d:.08s"><span class="en-b">Questions,<br><span class="grad-text">answered.</span></span><span class="zh-b">常见问题，<br><span class="grad-text">一次说清。</span></span></h2>
+    </div>
+    <div class="faq" data-reveal>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="en-t">Do I really need zero coding experience?</span><span class="zh-t">真的完全不需要编程基础吗？</span></span><span class="fx"></span></button>
+        <div class="faq-a"><p><span class="en-t">Yes. Viberobo is built so that language is the only interface you need. Describe behaviors in plain words — the platform generates, validates and wires everything. If you do know code, you can open any generated file and edit it directly; everything is standard, readable and yours.</span><span class="zh-t">是的。Viberobo 的设计目标就是让语言成为唯一需要的接口 —— 用大白话描述行为，平台自动生成、校验并接好每一层。如果你会写代码，也可以直接打开任何生成文件修改：一切都是标准、可读、属于你的代码。</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="en-t">What hardware does Viberobo support?</span><span class="zh-t">Viberobo 支持哪些硬件？</span></span><span class="fx"></span></button>
+        <div class="faq-a"><p><span class="en-t">The bridge service connects to ESP32, Arduino, Raspberry Pi and Jetson boards out of the box, and the generated code speaks ROS 2, Gazebo, MuJoCo and PyBullet on the software side. The bridge layer is Apache-2.0 open source, so any board can be added by the community.</span><span class="zh-t">桥接服务开箱支持 ESP32、Arduino、树莓派与 Jetson；软件侧生成的代码兼容 ROS 2、Gazebo、MuJoCo 与 PyBullet。桥接层以 Apache-2.0 开源，社区可以为任何开发板添加支持。</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="en-t">Is it safe for kids and classrooms?</span><span class="zh-t">对青少年和课堂来说安全吗？</span></span><span class="fx"></span></button>
+        <div class="faq-a"><p><span class="en-t">Safety is designed in, not bolted on: every project runs in the cloud simulation first, firmware ships with conservative speed and torque limits, and nothing deploys to hardware until the sim passes. Team plans add classroom management so teachers can supervise every workspace.</span><span class="zh-t">安全是设计进去的，不是事后补的：每个项目都先跑云端仿真，固件默认保守的速度与力矩限制，仿真不通过就不会部署到硬件。Team 版还提供课堂管理，老师可以监督每个工作区。</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="en-t">Who owns what I create?</span><span class="zh-t">我创造的作品归谁所有？</span></span><span class="fx"></span></button>
+        <div class="faq-a"><p><span class="en-t">You do. Every project, model and line of code generated for you is yours to keep, modify and commercialize. Templates you fork remain under their open-source licenses; your original creations are simply yours.</span><span class="zh-t">归你。为你生成的每个项目、模型和每一行代码，都属于你 —— 可保留、可修改、可商用。你复刻的模板仍遵循其开源协议；你的原创作品则完全属于你。</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="en-t">What happens after the beta ends?</span><span class="zh-t">Beta 结束后会怎样？</span></span><span class="fx"></span></button>
+        <div class="faq-a"><p><span class="en-t">The Maker plan stays free forever — that's a commitment, not a promotion. Pro and Team will start at the listed prices, and every beta user gets an extended free period plus early-bird pricing as a thank-you.</span><span class="zh-t">Maker 版永久免费 —— 这是承诺，不是促销。Pro 和 Team 将按页面价格开始收费，所有 Beta 用户都会获得延长的免费期与早鸟价作为感谢。</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html" aria-label="VibeRobo">
+          <svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#7c7cf8"/></linearGradient></defs><rect x="2" y="2" width="32" height="32" rx="10" stroke="url(#lg)" stroke-width="2.4"/><path d="M8 20c2.2-7 4.2-7 6 0s3.8 7 6 0 3.8-7 6 0" stroke="url(#lg)" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span class="logo-text">Vibe<b>Robo</b></span>
+        </a>
+        <p><span class="en-t">Turn your vibe into a robot. The world's first Vibe Coding Robotics platform.</span><span class="zh-t">灵感造机，语言赋智。全球首个 Vibe Coding 机器人开发平台。</span></p>
+        <div class="dom-pills"><span>viberobo.ai</span><span>viberobot.com</span></div>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Product</span><span class="zh-t">产品</span></h4>
+        <a href="download.html"><span class="en-t">Download VibeStudio</span><span class="zh-t">下载 VibeStudio</span></a>
+        <a href="templates.html"><span class="en-t">Templates</span><span class="zh-t">模板库</span></a>
+        <a href="pricing.html"><span class="en-t">Pricing</span><span class="zh-t">价格</span></a>
+        <a href="changelog.html"><span class="en-t">Changelog</span><span class="zh-t">更新日志</span></a>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Resources</span><span class="zh-t">资源支持</span></h4>
+        <a href="docs.html"><span class="en-t">Knowledge base</span><span class="zh-t">知识库</span></a>
+        <a href="docs.html"><span class="en-t">Quick start</span><span class="zh-t">快速上手</span></a>
+        <a href="community.html"><span class="en-t">Open community</span><span class="zh-t">开源社区</span></a>
+        <a href="https://github.com/viberobo" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="foot-col">
+        <h4><span class="en-t">Contact us</span><span class="zh-t">联系我们</span></h4>
+        <a href="tel:400000000"><span class="en-t">Hotline&nbsp;&middot;&nbsp;</span><span class="zh-t">企业咨询热线&nbsp;&middot;&nbsp;</span>400-000-000</a>
+        <a href="mailto:business@viberobo.ai"><span class="en-t">Enterprise purchase</span><span class="zh-t">企业采购咨询</span></a>
+        <a href="mailto:feedback@viberobo.ai"><span class="en-t">Feedback</span><span class="zh-t">建议反馈</span></a>
+        <span class="foot-addr"><span class="en-t">Building T5, Industrial Intelligence Center, Minhang, Shanghai</span><span class="zh-t">上海市闵行区工业智能中心T5栋</span></span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-legal">
+        <p>&copy; <span id="year">2026</span> Viberobo · 上海智可派机器人科技有限公司版权所有</p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">沪ICP备2024XXXXXX号-1</a><span class="en-t"> · viberobo.ai · viberobot.com</span></p>
+      </div>
+      <div class="social-row">
+        <a href="https://www.youtube.com/@viberobo" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.2 7.1s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.7 3.5 12 3.5 12 3.5s-4.7 0-7.9.3c-.5.1-1.5.1-2.4 1-.7.7-.9 2.3-.9 2.3S.6 9 .6 10.9v1.8c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.9.2 7.8.3 7.8.3s4.7 0 7.9-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.8c0-1.9-.2-3.8-.2-3.8ZM9.8 15V8.6l6.2 3.2L9.8 15Z"/></svg></a>
+        <a href="https://x.com/viberobo" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 1.8h3.7l-8.2 9.4L24 22.9h-7.6l-5.9-7.8-6.8 7.8H0l8.8-10L-.4 1.8h7.8l5.4 7.1 6.1-7.1Zm-1.3 18.8h2.1L6.3 4H4.1l13.5 16.6Z"/></svg></a>
+        <a href="#" aria-label="WeChat"><svg viewBox="0 0 24 24"><path d="M8.9 4.2C4.9 4.2 1.7 6.9 1.7 10.2c0 1.9 1 3.5 2.5 4.7l-.6 2 2.3-1.2c.7.2 1.5.4 2.3.4h.5c-.1-.4-.2-.9-.2-1.4 0-3.1 2.9-5.6 6.5-5.6h.4c-.6-2.9-3.4-4.9-6.5-4.9ZM6.4 8.2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm5 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/><path d="M15.9 10.5c-3.2 0-5.8 2.1-5.8 4.8s2.6 4.8 5.8 4.8c.6 0 1.3-.1 1.9-.3l2 .9-.6-1.7c1.4-.9 2.4-2.2 2.4-3.7 0-2.7-2.6-4.8-5.7-4.8Zm-2 3.1a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm4.1 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z"/></svg></a>
+        <a href="https://github.com/viberobo" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/viberobo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5 3.6a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM.3 8.4h4.5V22H.3V8.4Zm7.5 0h4.3v1.9h.1c.6-1.2 2.1-2.4 4.3-2.4 4.6 0 5.5 3 5.5 7V22h-4.5v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V22H7.8V8.4Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
