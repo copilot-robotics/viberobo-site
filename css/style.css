@@ -379,6 +379,14 @@ section{position:relative;padding:clamp(84px,10vw,140px) 0}
 .cta-card .cta-sub{color:var(--dim);margin-bottom:38px;font-size:16.5px}
 .cta-note{margin-top:22px;font-family:var(--font-m);font-size:12px;color:var(--faint);letter-spacing:.1em}
 
+/* subscribe form */
+.subscribe-form{display:flex;gap:12px;max-width:480px;margin:0 auto}
+.subscribe-input{flex:1;padding:14px 18px;border-radius:var(--r-sm);border:1px solid var(--line-2);background:rgba(255,255,255,.04);color:var(--fg);font-size:15px;font-family:var(--font-m);outline:none;transition:border-color .25s,box-shadow .25s}
+.subscribe-input::placeholder{color:var(--faint)}
+.subscribe-input:focus{border-color:rgba(78,225,245,.5);box-shadow:0 0 0 3px rgba(78,225,245,.1)}
+.subscribe-btn{white-space:nowrap;cursor:pointer}
+@media (max-width:520px){.subscribe-form{flex-direction:column}.subscribe-btn{width:100%}}
+
 /* ---------------- page hero (sub pages) ---------------- */
 .page-hero{padding-top:calc(var(--nav-h) + clamp(60px,9vw,110px));padding-bottom:clamp(48px,6vw,80px)}
 .page-hero .h2{font-size:clamp(38px,6vw,72px)}
